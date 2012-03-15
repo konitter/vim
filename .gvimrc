@@ -1,3 +1,5 @@
+scriptencoding cp932
+
 " ツールバーを非表示
 set guioptions-=T
 
