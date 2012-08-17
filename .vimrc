@@ -6,21 +6,21 @@
 " Initialize "{{{
 "
 
-" ViŒİŠ·‚ğƒIƒt
+" Viäº’æ›ã‚’ã‚ªãƒ•
 set nocompatible
 
-" ƒL[ƒ}ƒbƒvƒŠ[ƒ_[‚ğu,v‚É‚·‚é
+" ã‚­ãƒ¼ãƒãƒƒãƒ—ãƒªãƒ¼ãƒ€ãƒ¼ã‚’ã€Œ,ã€ã«ã™ã‚‹
 let mapleader = ","
 
 if has('win32') || has('win64')
 
-  " Win‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX‚Ì‹æØ‚è‚É/‚ğg‚¦‚é‚æ‚¤‚É
+  " Winã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã®åŒºåˆ‡ã‚Šã«/ã‚’ä½¿ãˆã‚‹ã‚ˆã†ã«
   set shellslash
 
-  " LinuxƒT[ƒo‚ğŠÂ‹«•Ï”‚Éw’è
+  " Linuxã‚µãƒ¼ãƒã‚’ç’°å¢ƒå¤‰æ•°ã«æŒ‡å®š
   let $LINUX = "//Hp-serv-linux/htdocs"
 
-  " viminfoƒtƒ@ƒCƒ‹‚Ìo—Íæ
+  " viminfoãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›å…ˆ
   set viminfo+=nC:/Users/H001022/Dropbox/tools/vim/_viminfo
 
 endif
@@ -29,140 +29,140 @@ endif
 " View "{{{
 "
 
-" ƒ^[ƒ~ƒiƒ‹‚Åƒ}ƒEƒX‚ğg—p‚Å‚«‚é‚æ‚¤‚É‚·‚é
+" ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ã§ãƒã‚¦ã‚¹ã‚’ä½¿ç”¨ã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
 set mouse=a
 
-" s”Ô†‚ğ•\¦‚·‚é
+" è¡Œç•ªå·ã‚’è¡¨ç¤ºã™ã‚‹
 set number
 
-" •s‰Â‹•¶š‚Ì•\¦
+" ä¸å¯è¦–æ–‡å­—ã®è¡¨ç¤º
 " set list
-" •s‰Â‹•¶š‚Ì•\¦Œ`®
+" ä¸å¯è¦–æ–‡å­—ã®è¡¨ç¤ºå½¢å¼
 " set listchars=tab:\|\
 
-" ƒEƒBƒ“ƒhƒE•‚æ‚è’·‚¢s‚ğÜ‚è•Ô‚·
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å¹…ã‚ˆã‚Šé•·ã„è¡Œã‚’æŠ˜ã‚Šè¿”ã™
 set wrap
-" ƒJ[ƒ\ƒ‹‚ªs“ª/––‚É‚ ‚é‚É‘O/Ÿs‚ÉˆÚ“®‚Å‚«‚é‚æ‚¤‚É
+" ã‚«ãƒ¼ã‚½ãƒ«ãŒè¡Œé ­/æœ«ã«ã‚ã‚‹æ™‚ã«å‰/æ¬¡è¡Œã«ç§»å‹•ã§ãã‚‹ã‚ˆã†ã«
 set whichwrap=b,s,h,l,<,>,[,]
 
-" ƒ^ƒCƒgƒ‹‚ğ•\¦
+" ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¡¨ç¤º
 set title
 
-" ƒXƒvƒ‰ƒbƒVƒ…‰æ–Ê‚ğ•\¦‚µ‚È‚¢
+" ã‚¹ãƒ—ãƒ©ãƒƒã‚·ãƒ¥ç”»é¢ã‚’è¡¨ç¤ºã—ãªã„
 set shortmess+=I
 
-" ÅIs‚ÉŒ»İ‚Ìƒ‚[ƒh‚ğ•\¦
+" æœ€çµ‚è¡Œã«ç¾åœ¨ã®ãƒ¢ãƒ¼ãƒ‰ã‚’è¡¨ç¤º
 set showmode
 
-" ƒXƒNƒ[ƒ‹‚Ì—]”’Šm•Û
+" ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ™‚ã®ä½™ç™½ç¢ºä¿
 set scrolloff=5
 
-" ƒoƒbƒtƒ@‚ÅŠJ‚¢‚Ä‚¢‚éƒfƒBƒŒƒNƒgƒŠ‚ğExplore‚Ì‰ŠúƒfƒBƒŒƒNƒgƒŠ‚É
+" ãƒãƒƒãƒ•ã‚¡ã§é–‹ã„ã¦ã„ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’Exploreã®åˆæœŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«
 set browsedir=buffer
 
-" ƒoƒbƒNƒAƒbƒv‚ğì‚ç‚È‚¢
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ä½œã‚‰ãªã„
 set nobackup
 set nowritebackup
 
-" ƒXƒƒbƒvƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
+" ã‚¹ãƒ¯ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
 set noswapfile
 
-" 8i”‚ğ–³Œø‚É‚·‚é
+" 8é€²æ•°ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 set nrformats-=octal
-" ˆóš•s‰Â”\•¶š‚ğ16i”‚Å•\¦
+" å°å­—ä¸å¯èƒ½æ–‡å­—ã‚’16é€²æ•°ã§è¡¨ç¤º
 set display=uhex
 
-" ƒr[ƒv‰¹‚ğ–Â‚ç‚³‚È‚¢
+" ãƒ“ãƒ¼ãƒ—éŸ³ã‚’é³´ã‚‰ã•ãªã„
 set visualbell
 set vb t_vb=
 
-" ƒRƒ}ƒ“ƒhEƒtƒ@ƒCƒ‹–¼•âŠ®‚ÌŠg’£‹@”\‚ğg—p
+" ã‚³ãƒãƒ³ãƒ‰ãƒ»ãƒ•ã‚¡ã‚¤ãƒ«åè£œå®Œã®æ‹¡å¼µæ©Ÿèƒ½ã‚’ä½¿ç”¨
 set wildmenu
-" •âŠ®‚ğŠJn‚·‚éƒL[
+" è£œå®Œã‚’é–‹å§‹ã™ã‚‹ã‚­ãƒ¼
 set wildchar=<tab>
-" ƒŠƒXƒg•\¦CÅ’·ƒ}ƒbƒ`
+" ãƒªã‚¹ãƒˆè¡¨ç¤ºï¼Œæœ€é•·ãƒãƒƒãƒ
 set wildmode=list:longest,full
 
-" ƒRƒ}ƒ“ƒhEŒŸõƒpƒ^[ƒ“‚Ì—š—ğ”
+" ã‚³ãƒãƒ³ãƒ‰ãƒ»æ¤œç´¢ãƒ‘ã‚¿ãƒ¼ãƒ³ã®å±¥æ­´æ•°
 set history=1000
 
-" •âŠ®‚É«‘ƒtƒ@ƒCƒ‹’Ç‰Á
+" è£œå®Œã«è¾æ›¸ãƒ•ã‚¡ã‚¤ãƒ«è¿½åŠ 
 set complete+=k
 
-" ƒJ[ƒ\ƒ‹‚ª‰½s–Ú‚Ì‰½—ñ–Ú‚É’u‚©‚ê‚Ä‚¢‚é‚©‚ğ•\¦‚·‚é
+" ã‚«ãƒ¼ã‚½ãƒ«ãŒä½•è¡Œç›®ã®ä½•åˆ—ç›®ã«ç½®ã‹ã‚Œã¦ã„ã‚‹ã‹ã‚’è¡¨ç¤ºã™ã‚‹
 set ruler
-" ƒJ[ƒ\ƒ‹s‚ğƒnƒCƒ‰ƒCƒg
+" ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 set cursorline
-" c•ûŒü‚àƒnƒCƒ‰ƒCƒg
+" ç¸¦æ–¹å‘ã‚‚ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 " set cursorcolumn
 
-" ƒRƒ}ƒ“ƒhÀs’†‚É‰æ–Ê‚ğ•`‰æ‚µ‚È‚¢
+" ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œä¸­ã«ç”»é¢ã‚’æç”»ã—ãªã„
 set lazyredraw
 
-" ƒRƒ}ƒ“ƒh“ü—Í—“‚Ì‚‚³‚ğ3s•ª‚Éİ’è
+" ã‚³ãƒãƒ³ãƒ‰å…¥åŠ›æ¬„ã®é«˜ã•ã‚’3è¡Œåˆ†ã«è¨­å®š
 set cmdheight=3
 
-" í‚ÉƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ğ•\¦
+" å¸¸ã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã‚’è¡¨ç¤º
 set laststatus=2
-" ƒRƒ}ƒ“ƒh‚ğƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚É•\¦
+" ã‚³ãƒãƒ³ãƒ‰ã‚’ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã«è¡¨ç¤º
 set showcmd
-" ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚É•¶šƒR[ƒh‚Æ‰üs•¶š‚ğ•\¦‚·‚é
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã«æ–‡å­—ã‚³ãƒ¼ãƒ‰ã¨æ”¹è¡Œæ–‡å­—ã‚’è¡¨ç¤ºã™ã‚‹
 set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %t%=%l,%c%V%8P
 
-" ‘SŠpƒXƒy[ƒX‚Ì•\¦
+" å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã®è¡¨ç¤º
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /@/
+match ZenkakuSpace /ã€€/
 
-" ƒ^ƒuƒy[ƒW‚ğí‚É•\¦
+" ã‚¿ãƒ–ãƒšãƒ¼ã‚¸ã‚’å¸¸ã«è¡¨ç¤º
 " set showtabline=2
 
 "---------------------------------------------------------------------------
 " Edit "{{{
 "
 
-" ƒ^ƒu•İ’è
+" ã‚¿ãƒ–å¹…è¨­å®š
 " set tabstop=8 shiftwidth=8 softtabstop=0
-" ƒ^ƒu‚ğ‹ó”’‚É•ÏŠ·‚µ‚È‚¢
+" ã‚¿ãƒ–ã‚’ç©ºç™½ã«å¤‰æ›ã—ãªã„
 set noexpandtab
 
-" .js‚Ì‚İƒ^ƒu•‚Æƒ^ƒu‚ğ‹ó”’‚É‚·‚éİ’è
+" .jsã®ã¿ã‚¿ãƒ–å¹…ã¨ã‚¿ãƒ–ã‚’ç©ºç™½ã«ã™ã‚‹è¨­å®š
 au BufNewFile,BufRead *.js set expandtab tabstop=8 shiftwidth=4
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-" ƒtƒ@ƒCƒ‹‚²‚Æ‚Ìİ’è‚ğ—LŒø‚É‚·‚é
+" ãƒ•ã‚¡ã‚¤ãƒ«ã”ã¨ã®è¨­å®šã‚’æœ‰åŠ¹ã«ã™ã‚‹
 set modeline
 set modelines=2
 
-" OS‚ÌƒNƒŠƒbƒvƒ{[ƒh‚ğg—p‚·‚é
+" OSã®ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹
 set clipboard+=unnamed
 
-" ©“®‚ÅÜ‚è•Ô‚µ‚ğ‚µ‚È‚¢
+" è‡ªå‹•ã§æŠ˜ã‚Šè¿”ã—ã‚’ã—ãªã„
 set textwidth=0
 
-" ƒoƒbƒNƒXƒy[ƒX‚Å‰½‚Å‚àÁ‚¹‚é‚æ‚¤‚É
+" ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã§ä½•ã§ã‚‚æ¶ˆã›ã‚‹ã‚ˆã†ã«
 set backspace=indent,eol,start
 
-" ‘Î‰‚·‚éŠ‡ŒÊ‚ğƒnƒCƒ‰ƒCƒg
+" å¯¾å¿œã™ã‚‹æ‹¬å¼§ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 set showmatch
-" ƒnƒCƒ‰ƒCƒg‚ÌŠÔ‚ğ3•b‚É
+" ãƒã‚¤ãƒ©ã‚¤ãƒˆã®æ™‚é–“ã‚’3ç§’ã«
 set matchtime=3
 
-" •ÒW’†‚Å‚à‘¼‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚é‚æ‚¤‚É‚·‚é
+" ç·¨é›†ä¸­ã§ã‚‚ä»–ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã‚‹ã‚ˆã†ã«ã™ã‚‹
 set hidden
 
-" ‘¼‚Åƒtƒ@ƒCƒ‹‚ª‘‚«Š·‚¦‚ç‚ê‚½‚ç©“®‚Å“Ç‚İ’¼‚·
+" ä»–ã§ãƒ•ã‚¡ã‚¤ãƒ«ãŒæ›¸ãæ›ãˆã‚‰ã‚ŒãŸã‚‰è‡ªå‹•ã§èª­ã¿ç›´ã™
 set autoread
 
-" ‘}“üƒ‚[ƒh‚Å‚Ì’PŒê•âŠ®‚É‘å•¶š¬•¶š‚ğ–³‹‚·‚é
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ã®å˜èªè£œå®Œæ™‚ã«å¤§æ–‡å­—å°æ–‡å­—ã‚’ç„¡è¦–ã™ã‚‹
 set infercase
 
-" ‹éŒ`‘I‘ğ‚Å©—R‚ÉˆÚ“®‚·‚é
+" çŸ©å½¢é¸æŠã§è‡ªç”±ã«ç§»å‹•ã™ã‚‹
 set virtualedit+=block
 
-" ƒeƒLƒXƒg®Œ`ƒIƒvƒVƒ‡ƒ“Cƒ}ƒ‹ƒ`ƒoƒCƒgŒn‚ğ’Ç‰Á
+" ãƒ†ã‚­ã‚¹ãƒˆæ•´å½¢ã‚ªãƒ—ã‚·ãƒ§ãƒ³ï¼Œãƒãƒ«ãƒãƒã‚¤ãƒˆç³»ã‚’è¿½åŠ 
 set formatoptions=lmoq
 
-" •¶š‚ª‚È‚¢êŠ‚Å‚Ìƒy[ƒXƒg‚É‹ó”’‚ğ‹l‚ß‚é
+" æ–‡å­—ãŒãªã„å ´æ‰€ã§ã®ãƒšãƒ¼ã‚¹ãƒˆæ™‚ã«ç©ºç™½ã‚’è©°ã‚ã‚‹
 if has('virtualedit') && &virtualedit =~# '\<all\>'
   nnoremap <expr> p (col('.') >= col('$') ? '$' : '') . 'p'
 endif
@@ -171,94 +171,94 @@ endif
 " Search "{{{
 "
 
-" ÅŒã‚Ü‚ÅŒŸõ‚µ‚½‚çæ“ª‚Ö–ß‚é
+" æœ€å¾Œã¾ã§æ¤œç´¢ã—ãŸã‚‰å…ˆé ­ã¸æˆ»ã‚‹
 set wrapscan
 
-" ‘å•¶š¬•¶š–³‹
+" å¤§æ–‡å­—å°æ–‡å­—ç„¡è¦–
 set ignorecase
 
-" ŒŸõ•¶š—ñ‚É‘å•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚Í‹æ•Ê‚µ‚ÄŒŸõ
+" æ¤œç´¢æ–‡å­—åˆ—ã«å¤§æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯åŒºåˆ¥ã—ã¦æ¤œç´¢
 set smartcase
 
-" ƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ`
+" ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ
 set incsearch
 
-" ŒŸõ•¶š‚ğƒnƒCƒ‰ƒCƒg
+" æ¤œç´¢æ–‡å­—ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 set hlsearch
 
 "---------------------------------------------------------------------------
 " Syntax "{{{
 "
 
-" ƒVƒ“ƒ^ƒbƒNƒXƒJƒ‰[‚ğON
+" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚«ãƒ©ãƒ¼ã‚’ON
 syntax enable
 
-" ©“®‚ÅƒCƒ“ƒfƒ“ƒg
+" è‡ªå‹•ã§ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆ
 set autoindent
 
-" V‚µ‚¢s‚ÌƒCƒ“ƒfƒ“ƒg‚ğŒ»İs‚Æ“¯‚¶—Ê‚É
+" æ–°ã—ã„è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’ç¾åœ¨è¡Œã¨åŒã˜é‡ã«
 set smartindent
 
 "---------------------------------------------------------------------------
 " Key-mappings "{{{
 "
 
-" <C-s>‚Å•Û‘¶
+" <C-s>ã§ä¿å­˜
 noremap <C-S>	:update<CR>
 vnoremap <C-S>	<C-C>:update<CR>
 inoremap <C-S>	<C-O>:update<CR>
 
-" ;‚ÅƒRƒ}ƒ“ƒhƒ‚[ƒh‚Ö
+" ;ã§ã‚³ãƒãƒ³ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã¸
 noremap ; :
 noremap : ;
 
-" jj‚ğEsc‚Æ‚µ‚Äg—p
+" jjã‚’Escã¨ã—ã¦ä½¿ç”¨
 inoremap jj <Esc>
 
-" <C-i>‚Åƒwƒ‹ƒv‚ğŠJ‚­
+" <C-i>ã§ãƒ˜ãƒ«ãƒ—ã‚’é–‹ã
 nnoremap <C-i>  :<C-u>help<Space>
-" ƒJ[ƒ\ƒ‹‰º‚ÌƒL[ƒ[ƒh‚ğƒwƒ‹ƒv‚Å‚Ğ‚­
+" ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’ãƒ˜ãƒ«ãƒ—ã§ã²ã
 nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
 
-" İ’èƒtƒ@ƒCƒ‹‚ğƒRƒ}ƒ“ƒh‚ÅŠJ‚­
+" è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒãƒ³ãƒ‰ã§é–‹ã
 nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
 nnoremap <silent> <Space>eg  :<C-u>edit $MYGVIMRC<CR>
 
-" İ’èƒtƒ@ƒCƒ‹‚Ì‚İ‚ğÄ‹N“®
+" è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®ã¿ã‚’å†èµ·å‹•
 nnoremap <silent> <Space>rv :<C-u>source $MYVIMRC \| if has('gui_running') \| source $MYGVIMRC \| endif <CR>
 nnoremap <silent> <Space>rg :<C-u>source $MYGVIMRC<CR>
 
-" htmlƒtƒ@ƒCƒ‹‚Ì‘Š‘ÎURL‚ğgf‚ÅŠJ‚­
+" htmlãƒ•ã‚¡ã‚¤ãƒ«ã®ç›¸å¯¾URLã‚’gfã§é–‹ã
 autocmd FileType html setlocal includeexpr=substitute(v:fname,'^\\/','','') | setlocal path+=;/
 
-" ƒrƒWƒ…ƒAƒ‹ƒ‚[ƒh‚Å‚ÌƒCƒ“ƒfƒ“ƒg‚ğ<tab>‚Å
+" ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ¢ãƒ¼ãƒ‰ã§ã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’<tab>ã§
 xnoremap <TAB>    >
 xnoremap <S-TAB>  <
 
-" ƒCƒ“ƒfƒ“ƒg‚ğ˜A‘±‚Å‚Å‚«‚é‚æ‚¤‚É
+" ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’é€£ç¶šã§ã§ãã‚‹ã‚ˆã†ã«
 vnoremap <silent> > >gv
 vnoremap <silent> < <gv
 
-" :Pt‚ÅƒCƒ“ƒfƒ“ƒgƒ‚[ƒhØ‘Ö
+" :Ptã§ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿
 " command! Pt :set paste!
-" pasteƒ‚[ƒhØ‚è‘Ö‚¦
+" pasteãƒ¢ãƒ¼ãƒ‰åˆ‡ã‚Šæ›¿ãˆ
 imap <F11> <nop>
 set pastetoggle=<F11>
-" ‘}“üƒ‚[ƒh‚ğ”²‚¯‚½‚Énopaste‚É–ß‚·
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã‚’æŠœã‘ãŸæ™‚ã«nopasteã«æˆ»ã™
 autocmd InsertLeave * set nopaste
 
-" Esc‚Ì2‰ñ‰Ÿ‚µ‚ÅƒnƒCƒ‰ƒCƒgÁ‹
+" Escã®2å›æŠ¼ã—ã§ãƒã‚¤ãƒ©ã‚¤ãƒˆæ¶ˆå»
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
-" ‘I‘ğ‚µ‚½•¶š—ñ‚ğŒŸõ
-" ƒJ[ƒ\ƒ‹‰º‚ÌƒL[ƒ[ƒhŒŸõ‚ÍAu*v
-" •¶Í‚Ì’†‚É‚ ‚éê‡‚àŒŸõ‚·‚éê‡‚ÍAug*v
+" é¸æŠã—ãŸæ–‡å­—åˆ—ã‚’æ¤œç´¢
+" ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰æ¤œç´¢ã¯ã€ã€Œ*ã€
+" æ–‡ç« ã®ä¸­ã«ã‚ã‚‹å ´åˆã‚‚æ¤œç´¢ã™ã‚‹å ´åˆã¯ã€ã€Œg*ã€
 vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Åus*v‚Ì‚ ‚Æu’uŠ·Œã•¶š—ñ/g<Cr>v‚ÅƒJ[ƒ\ƒ‹‰º‚Ì•¶š—ñ‚ğ’uŠ·
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã§ã€Œs*ã€ã®ã‚ã¨ã€Œç½®æ›å¾Œæ–‡å­—åˆ—/g<Cr>ã€ã§ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®æ–‡å­—åˆ—ã‚’ç½®æ›
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
-" ŒŸõŒ‹‰Ê‚ÉˆÚ“®‚µ‚½‚»‚ÌˆÊ’u‚ğ‰æ–Ê‚Ì’†‰›‚É‚·‚é
+" æ¤œç´¢çµæœã«ç§»å‹•ã—ãŸæ™‚ãã®ä½ç½®ã‚’ç”»é¢ã®ä¸­å¤®ã«ã™ã‚‹
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -266,12 +266,12 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-" J‚ÆD‚Å”¼ƒy[ƒWˆÚ“®
+" Jã¨Dã§åŠãƒšãƒ¼ã‚¸ç§»å‹•
 nnoremap J <C-D>
 nnoremap K <C-U>
 
-" ƒJ[ƒ\ƒ‹‚ğ•\¦s‚ÅˆÚ“®‚·‚é
-" ˜_—sˆÚ“®‚Í<C-n>,<C-p>
+" ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡¨ç¤ºè¡Œã§ç§»å‹•ã™ã‚‹
+" è«–ç†è¡Œç§»å‹•ã¯<C-n>,<C-p>
 nnoremap h <Left>
 nnoremap j gj
 nnoremap k gk
@@ -279,59 +279,59 @@ nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-" 0, 9‚Ås––As“ª‚Ö
+" 0, 9ã§è¡Œæœ«ã€è¡Œé ­ã¸
 nmap 8 0
 nmap 9 ^
 nmap 0 $
 
-" <Home>‚Ås“ª‚ÌƒeƒLƒXƒg‚Ö
+" <Home>ã§è¡Œé ­ã®ãƒ†ã‚­ã‚¹ãƒˆã¸
 inoremap <Home>  <C-o>^
 
-" ‘}“üƒ‚[ƒh‚Å‚ÌƒJ[ƒ\ƒ‹ˆÚ“®
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ã®ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•
 imap <c-s-k> <Up>
 imap <c-s-j> <Down>
 imap <c-h> <Left>
 imap <c-l> <Right>
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Å‚Ìƒoƒbƒtƒ@ˆÚ“®
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã§ã®ãƒãƒƒãƒ•ã‚¡ç§»å‹•
 nmap <Space> ;bn<CR>
 nmap <BS>    ;bp<CR>
 
-" ‘}“üƒ‚[ƒh‚Å‚Ìƒoƒbƒtƒ@ˆÚ“®
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ã®ãƒãƒƒãƒ•ã‚¡ç§»å‹•
 imap <C-Tab>   <ESC>;bn<CR>a
 imap <S-Tab>   <ESC>;bp<CR>a
 
-" F4‚Åƒoƒbƒtƒ@‚ğíœ‚·‚é
+" F4ã§ãƒãƒƒãƒ•ã‚¡ã‚’å‰Šé™¤ã™ã‚‹
 map <F4> <ESC>;bw<CR>
 
-" ƒtƒŒ[ƒ€ƒTƒCƒY‚ğ‘Ó‘Ä‚É•ÏX‚·‚é
+" ãƒ•ãƒ¬ãƒ¼ãƒ ã‚µã‚¤ã‚ºã‚’æ€ æƒ°ã«å¤‰æ›´ã™ã‚‹
 map <kPlus>  <C-W>+
 map <kMinus> <C-W>-
 
-" ‘O‰ñI—¹‚µ‚½ƒJ[ƒ\ƒ‹s‚ÉˆÚ“®
+" å‰å›çµ‚äº†ã—ãŸã‚«ãƒ¼ã‚½ãƒ«è¡Œã«ç§»å‹•
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" ÅŒã‚É•ÒW‚³‚ê‚½ˆÊ’u‚ÉˆÚ“®
+" æœ€å¾Œã«ç·¨é›†ã•ã‚ŒãŸä½ç½®ã«ç§»å‹•
 nnoremap gb '[
 nnoremap gp ']
 
-" ‘Î‰‚·‚éŠ‡ŒÊ‚ÉˆÚ“®
+" å¯¾å¿œã™ã‚‹æ‹¬å¼§ã«ç§»å‹•
 nnoremap [ %
 nnoremap ] %
 
-" ƒJ[ƒ\ƒ‹ˆÊ’u‚Ì’PŒê‚ğyank‚·‚é
+" ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®å˜èªã‚’yankã™ã‚‹
 nnoremap vy vawy
 
-" ƒrƒWƒ…ƒAƒ‹ƒ‚[ƒhv‚Ås––‚Ü‚Å‘I‘ğ
+" ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ¢ãƒ¼ãƒ‰æ™‚vã§è¡Œæœ«ã¾ã§é¸æŠ
 vnoremap v $h
 
-" <C-hjkl>‚ÅƒEƒBƒ“ƒhƒEˆÚ“®
+" <C-hjkl>ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ç§»å‹•
 nnoremap <C-j> ;<C-w>j
 nnoremap <C-k> ;<C-k>j
 nnoremap <C-l> ;<C-l>j
 nnoremap <C-h> ;<C-h>j
 
-" Š‡ŒÊ‚Ü‚Å‚ğ‘I‘ğ‚·‚é
+" æ‹¬å¼§ã¾ã§ã‚’é¸æŠã™ã‚‹
 vnoremap ( t(
 vnoremap ) t)
 vnoremap ] t]
@@ -341,35 +341,35 @@ onoremap ) t)
 onoremap ] t]
 onoremap [ t[
 
-" ‘}“üƒ‚[ƒh‚ÅƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ğƒy[ƒXƒg
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®å†…å®¹ã‚’ãƒšãƒ¼ã‚¹ãƒˆ
 imap <C-v>  <ESC>"*pa
 
-" ‘}“üƒ‚[ƒh‚ÅƒAƒ“ƒhƒDEƒŠƒhƒD
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§ã‚¢ãƒ³ãƒ‰ã‚¥ãƒ»ãƒªãƒ‰ã‚¥
 imap <C-z>  <ESC>ua
 imap <C-a>  <ESC><C-r>a
 
-" ‘}“üƒ‚[ƒh‚Å’PŒê’PˆÊ/s’PˆÊ‚Ìíœ‚ğƒAƒ“ƒhƒD‰Â”\‚É‚·‚é
+" æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ã§å˜èªå˜ä½/è¡Œå˜ä½ã®å‰Šé™¤ã‚’ã‚¢ãƒ³ãƒ‰ã‚¥å¯èƒ½ã«ã™ã‚‹
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 
-" y9‚Ås––‚Ü‚Åƒ„ƒ“ƒN
+" y9ã§è¡Œæœ«ã¾ã§ãƒ¤ãƒ³ã‚¯
 nmap y9 y$
-" y0‚Ås“ª‚Ü‚Åƒ„ƒ“ƒN
+" y0ã§è¡Œé ­ã¾ã§ãƒ¤ãƒ³ã‚¯
 nmap y0 y^
 
-" Š‡ŒÊ‚Ì©“®ƒJ[ƒ\ƒ‹ˆÚ“®
+" æ‹¬å¼§ã®è‡ªå‹•ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•
 inoremap {}  {}<LEFT>
 inoremap []  []<LEFT>
 inoremap ()  ()<LEFT>
 inoremap ""  ""<LEFT>
 inoremap ''  ''<LEFT>
 
-" •Û‘¶‚És––‚Ì‹ó”’‚ğœ‹‚·‚é
+" ä¿å­˜æ™‚ã«è¡Œæœ«ã®ç©ºç™½ã‚’é™¤å»ã™ã‚‹
 autocmd BufWritePre * :%s/\s\+$//ge
-" •Û‘¶‚Étab‚ğƒXƒy[ƒX‚É•ÏŠ·‚·‚é
+" ä¿å­˜æ™‚ã«tabã‚’ã‚¹ãƒšãƒ¼ã‚¹ã«å¤‰æ›ã™ã‚‹
 " autocmd BufWritePre * :%s/\t/  /ge
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Å‰üs
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã§æ”¹è¡Œ
 nnoremap <CR>  o<Esc>
 
 "---------------------------------------------------------------------------
@@ -380,39 +380,39 @@ nnoremap <CR>  o<Esc>
 " pathogen "{{{
 "
 
-" ˆê’Uƒtƒ@ƒCƒ‹ƒ^ƒCƒv”»’è‚ğoff
+" ä¸€æ—¦ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—åˆ¤å®šã‚’off
 filetype off
 
-" bundle”z‰º‚Ìplugin‚ğpath‚É‰Á‚¦‚é
+" bundleé…ä¸‹ã®pluginã‚’pathã«åŠ ãˆã‚‹
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 set helpfile=$VIMRUNTIME/doc/help.txt
 
-" ƒtƒ@ƒCƒ‹ƒ^ƒCƒv”»’è‚ğon
+" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—åˆ¤å®šã‚’on
 filetype plugin on
 
 "------------------------------------
 " VimFiler "{{{
 "
 
-" $LINUX‚ğƒRƒ}ƒ“ƒh‚ÅŠJ‚­
+" $LINUXã‚’ã‚³ãƒãƒ³ãƒ‰ã§é–‹ã
 nnoremap <F2> :VimFiler -buffer-name=explorer $LINUX<Cr>
 " nnoremap <silent> <Space>vf :<C-U>VimFiler -create $LINUX<CR>
-" split‚ÅŠJ‚­
+" splitã§é–‹ã
 nnoremap <F3> :VimFiler -buffer-name=explorer -split -winwidth=35 -toggle -no-quit $LINUX<Cr>
 " nnoremap <silent> <Space>vfs :<C-U>VimFiler -create -split -simple -winwidth=35 -no-quit $LINUX<CR>
 
-" ƒfƒtƒHƒ‹ƒg‚ÌƒGƒNƒXƒvƒ[ƒ‰netrw‚ğVimFiler‚É’u‚«Š·‚¦
-" :e {ƒfƒBƒŒƒNƒgƒŠ} ‚Å‹N“®
+" ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©netrwã‚’VimFilerã«ç½®ãæ›ãˆ
+" :e {ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª} ã§èµ·å‹•
 let g:vimfiler_as_default_explorer = 1
 
-" ƒZ[ƒtƒ‚[ƒh‚Å‹N“®‚µ‚È‚¢‚æ‚¤‚É‚·‚é
+" ã‚»ãƒ¼ãƒ•ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•ã—ãªã„ã‚ˆã†ã«ã™ã‚‹
 let g:vimfiler_safe_mode_by_default = 0
 
-" İ’èƒtƒ@ƒCƒ‹‚ğ‘‚«o‚·ƒfƒBƒŒƒNƒgƒŠ
+" è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãå‡ºã™ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 let g:vimfiler_data_directory = $VIM.'/.vimfiler'
 
-" ƒ}ƒbƒvİ’è
+" ãƒãƒƒãƒ—è¨­å®š
 autocmd! FileType vimfiler call g:my_vimfiler_settings()
 function! g:my_vimfiler_settings()
   nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
@@ -438,14 +438,14 @@ call unite#custom_action('file', 'my_vsplit', my_action)
 " restart.vim "{{{
 "
 
-" :Rs‚ÅÄ‹N“®
+" :Rsã§å†èµ·å‹•
 let g:restart_command = 'Rs'
 
 "------------------------------------
 " mru.vim "{{{
 "
 
-" ƒf[ƒ^•Û‘¶êŠ
+" ãƒ‡ãƒ¼ã‚¿ä¿å­˜å ´æ‰€
 let MRU_File = $VIM.'/_vim_mru_files'
 
 "------------------------------------
@@ -458,13 +458,13 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " Zen-Coding "{{{
 "
 
-" ƒŠ[ƒ_[ƒL[
+" ãƒªãƒ¼ãƒ€ãƒ¼ã‚­ãƒ¼
 let g:user_zen_leader_key = '<c-e>'
 
-" —v‘f‚Ì“WŠJ
+" è¦ç´ ã®å±•é–‹
 let g:user_zen_expandabbr_key = '<c-e>'
 
-" ŒÂlİ’è
+" å€‹äººè¨­å®š
 let g:user_zen_settings = {
 \  'lang' : 'ja',
 \  'charset' : 'utf-8',
@@ -511,7 +511,7 @@ let g:user_zen_settings = {
 " YankRing.vim "{{{
 "
 
-" Yank‚Ì—š—ğQÆ
+" Yankã®å±¥æ­´å‚ç…§
 nmap ,y ;YRShow<CR>
 
 "------------------------------------
@@ -530,51 +530,51 @@ let g:miniBufExplMaxSize = 10
 " NERD_commenter.vim "{{{
 "
 
-" ƒRƒƒ“ƒg‚ÌŠÔ‚ÉƒXƒy[ƒX‚ğ‹ó‚¯‚é
+" ã‚³ãƒ¡ãƒ³ãƒˆã®é–“ã«ã‚¹ãƒšãƒ¼ã‚¹ã‚’ç©ºã‘ã‚‹
 let NERDSpaceDelims = 1
 
-" ƒRƒƒ“ƒg‚ğƒgƒOƒ‹
+" ã‚³ãƒ¡ãƒ³ãƒˆã‚’ãƒˆã‚°ãƒ«
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
 
-" –¢‘Î‰ƒtƒ@ƒCƒ‹ƒ^ƒCƒv‚ÌƒGƒ‰[ƒƒbƒZ[ƒW‚ğ•\¦‚µ‚È‚¢
+" æœªå¯¾å¿œãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ã®ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã—ãªã„
 let NERDShutUp = 1
 
 "------------------------------------
 " VTreeExplorer "{{{
 "
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Å‹N“®
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•
 nnoremap <silent> <Space>vt :VSTreeExplore<CR>
 
-" c‚É•\¦‚·‚é
+" ç¸¦ã«è¡¨ç¤ºã™ã‚‹
 let g:treeExplVertical = 1
 
-" •ªŠ„‚µ‚½ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY
+" åˆ†å‰²ã—ãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚º
 let g:treeExplWinSize = 30
 
 "------------------------------------
 " open-blowser.vim "{{{
 "
 
-" ƒJ[ƒ\ƒ‹‰º‚ÌURL‚ğƒuƒ‰ƒEƒU‚ÅŠJ‚­
+" ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®URLã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§é–‹ã
 nmap fu <Plug>(openbrowser-open)
 vmap fu <Plug>(openbrowser-open)
 
-" ƒJ[ƒ\ƒ‹‰º‚ÌƒL[ƒ[ƒh‚ğƒOƒO‚é
+" ã‚«ãƒ¼ã‚½ãƒ«ä¸‹ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’ã‚°ã‚°ã‚‹
 nnoremap fs :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
 "------------------------------------
 " textmanip.vim "{{{
 "
 
-" ‘I‘ğ‚µ‚½ƒeƒLƒXƒg‚ÌˆÚ“®
+" é¸æŠã—ãŸãƒ†ã‚­ã‚¹ãƒˆã®ç§»å‹•
 vmap <C-j> <Plug>(Textmanip.move_selection_down)
 vmap <C-k> <Plug>(Textmanip.move_selection_up)
 vmap <C-h> <Plug>(Textmanip.move_selection_left)
 vmap <C-l> <Plug>(Textmanip.move_selection_right)
 
-" s‚Ì•¡»(<M>‚ÍAlt)
+" è¡Œã®è¤‡è£½(<M>ã¯Alt)
 vmap <M-d> <Plug>(Textmanip.duplicate_selection_v)
 nmap <M-d> <Plug>(Textmanip.duplicate_selection_n)
 
@@ -582,14 +582,14 @@ nmap <M-d> <Plug>(Textmanip.duplicate_selection_n)
 " operator-replace.vim "{{{
 "
 
-" ƒ„ƒ“ƒN‚µ‚½•¶š—ñ‚ğuRv‚Å’uŠ·
+" ãƒ¤ãƒ³ã‚¯ã—ãŸæ–‡å­—åˆ—ã‚’ã€ŒRã€ã§ç½®æ›
 nmap R <Plug>(operator-replace)
 
 "------------------------------------
 " surround.vim "{{{
 "
 
-" ©“®“I‚ÉˆÍ‚İ•¶š‚ğ”»•Ê‚µ‚Ä’†g‚ğíœ
+" è‡ªå‹•çš„ã«å›²ã¿æ–‡å­—ã‚’åˆ¤åˆ¥ã—ã¦ä¸­èº«ã‚’å‰Šé™¤
 nnoremap ci :call <SID>ExSurround("ci")<CR>
 nnoremap di :call <SID>ExSurround("di")<CR>
 function! s:ExSurround(cmd)
@@ -612,38 +612,38 @@ endfunction
 " unite.vim "{{{
 "
 
-" “ü—Íƒ‚[ƒh‚ÅŠJn‚·‚é
+" å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã§é–‹å§‹ã™ã‚‹
 let g:unite_enable_start_insert = 1
 
-" ƒoƒbƒtƒ@ˆê——
+" ãƒãƒƒãƒ•ã‚¡ä¸€è¦§
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 
-" ƒtƒ@ƒCƒ‹ˆê——
+" ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 
-" ƒŒƒWƒXƒ^ˆê——
+" ãƒ¬ã‚¸ã‚¹ã‚¿ä¸€è¦§
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 
-" Å‹ßg—p‚µ‚½ƒtƒ@ƒCƒ‹ˆê——
+" æœ€è¿‘ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 
-" ƒuƒbƒNƒ}[ƒNˆê——
+" ãƒ–ãƒƒã‚¯ãƒãƒ¼ã‚¯ä¸€è¦§
 nnoremap <silent> ,uc :<C-u>Unite bookmark<CR>
 
-" İ’èƒtƒ@ƒCƒ‹‚ğ‘‚«o‚·ƒfƒBƒŒƒNƒgƒŠ
+" è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãå‡ºã™ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 let g:unite_data_directory = $VIM.'/.unite'
 
 "------------------------------------
 " vimshell "{{{
 "
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Å‹N“®
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã§èµ·å‹•
 nnoremap <silent> vs :VimShell<CR>
 
-" ƒVƒFƒ‹ƒRƒ}ƒ“ƒh‚ÌƒpƒX‚ğ’Ê‚·
+" ã‚·ã‚§ãƒ«ã‚³ãƒãƒ³ãƒ‰ã®ãƒ‘ã‚¹ã‚’é€šã™
 let $PATH = $VIM.'\bin'.';'.$PATH
 
-" İ’è
+" è¨­å®š
 let g:vimshell_interactive_update_time = 10
 let g:vimshell_prompt = '$ '
 let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
@@ -654,54 +654,54 @@ let g:vimshell_temporary_directory = $VIM.'/.vimshell'
 " neocomplcache "{{{
 "
 
-" •âŠ®ƒEƒBƒ“ƒhƒE‚Ìİ’è
+" è£œå®Œã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¨­å®š
 set completeopt=menuone
 
-" ‹N“®‚É—LŒø‰»
+" èµ·å‹•æ™‚ã«æœ‰åŠ¹åŒ–
 let g:neocomplcache_enable_at_startup = 1
 
-" ‘å•¶š‚ª“ü—Í‚³‚ê‚é‚Ü‚Å‘å•¶š¬•¶š‚Ì‹æ•Ê‚ğ–³‹‚·‚é
+" å¤§æ–‡å­—ãŒå…¥åŠ›ã•ã‚Œã‚‹ã¾ã§å¤§æ–‡å­—å°æ–‡å­—ã®åŒºåˆ¥ã‚’ç„¡è¦–ã™ã‚‹
 let g:neocomplcache_enable_smart_case = 1
 
-" ƒVƒ“ƒ^ƒbƒNƒX‚ğƒLƒƒƒbƒVƒ…‚·‚é‚Æ‚«‚ÌÅ¬•¶š’·
+" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã™ã‚‹ã¨ãã®æœ€å°æ–‡å­—é•·
 let g:neocomplcache_min_syntax_length = 3
 
-" ƒoƒbƒtƒ@‚â«‘ƒtƒ@ƒCƒ‹’†‚Ì•âŠ®‘ÎÛ‚Æ‚È‚éƒL[ƒ[ƒh‚ÌÅ¬’·
+" ãƒãƒƒãƒ•ã‚¡ã‚„è¾æ›¸ãƒ•ã‚¡ã‚¤ãƒ«ä¸­ã®è£œå®Œå¯¾è±¡ã¨ãªã‚‹ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®æœ€å°é•·
 let g:neocomplcache_min_keyword_length = 3
 
-" ƒNƒCƒbƒNƒ}ƒbƒ`‚É©“®‚ÅŒó•â‚ğ‘I‘ğ
+" ã‚¯ã‚¤ãƒƒã‚¯ãƒãƒƒãƒæ™‚ã«è‡ªå‹•ã§å€™è£œã‚’é¸æŠ
 let g:neocomplcache_enable_auto_select = 1
 
-" ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚Å•\¦‚³‚ê‚éŒó•â‚Ì”
+" ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§è¡¨ç¤ºã•ã‚Œã‚‹å€™è£œã®æ•°
 let g:neocomplcache_max_list = 100
 
-" ˆêƒtƒ@ƒCƒ‹‚ğ‘‚«o‚·ƒfƒBƒŒƒNƒgƒŠ
+" ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãå‡ºã™ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 let g:neocomplcache_temporary_dir = $VIM.'/.neocon'
 
-" •âŠ®‚·‚é‚½‚ß‚ÌƒL[ƒ[ƒhƒpƒ^[ƒ“‚ğ‹L˜^
+" è£œå®Œã™ã‚‹ãŸã‚ã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¨˜éŒ²
 if !exists('g:neocomplcache_keyword_patterns')
   let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" ƒVƒ“ƒ^ƒbƒNƒX•âŠ®‚ğ–³Œø‚É
+" ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹è£œå®Œã‚’ç„¡åŠ¹ã«
 let g:neocomplcache_plugin_disable = {
   \ 'syntax_complete' : 1,
   \ }
 
-" •W€‚Å—pˆÓ‚³‚ê‚Ä‚¢‚éƒXƒjƒyƒbƒg‚ğ–³Œø‚É‚·‚é
+" æ¨™æº–ã§ç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã‚¹ãƒ‹ãƒšãƒƒãƒˆã‚’ç„¡åŠ¹ã«ã™ã‚‹
 let g:neocomplcache_snippets_disable_runtime_snippets = 1
 
-" ƒXƒjƒyƒbƒg•âŠ®ƒtƒ@ƒCƒ‹‚ÌƒpƒX
+" ã‚¹ãƒ‹ãƒšãƒƒãƒˆè£œå®Œãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹
 " let g:neocomplcache_snippets_dir = $VIM.'/snippets'
 
-" ‘O‰ñ•âŠ®‚³‚ê‚½“à—e‚ğŒ³‚É–ß‚·
+" å‰å›è£œå®Œã•ã‚ŒãŸå†…å®¹ã‚’å…ƒã«æˆ»ã™
 inoremap <expr><C-g>   neocomplcache#undo_completion()
 
-" ƒ|ƒbƒvƒAƒbƒv‚ğŠmÀ‚É•Â‚¶‚é
+" ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ç¢ºå®Ÿã«é–‰ã˜ã‚‹
 inoremap <expr><BS>    neocomplcache#smart_close_popup()."\<C-h>"
 
-" •âŠ®Œó•â‚ğ‘I‘ğ‚·‚éi‘I‘ğ‚·‚é“x‚ÉŒ³‚ÌƒL[ƒ[ƒh‚ğXVj
+" è£œå®Œå€™è£œã‚’é¸æŠã™ã‚‹ï¼ˆé¸æŠã™ã‚‹åº¦ã«å…ƒã®ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’æ›´æ–°ï¼‰
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ neocomplcache#start_manual_complete()
@@ -710,13 +710,13 @@ function! s:check_back_space()"{{{
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
-" •âŠ®Œó•â‚ğ‹t‡‚Å‘I‘ğ‚·‚é
+" è£œå®Œå€™è£œã‚’é€†é †ã§é¸æŠã™ã‚‹
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 
-" ƒXƒjƒyƒbƒg‚ğ“WŠJ
+" ã‚¹ãƒ‹ãƒšãƒƒãƒˆã‚’å±•é–‹
 " imap <c-e>     <Plug>(neocomplcache_snippets_expand)
 " smap <c-e>     <Plug>(neocomplcache_snippets_expand)
 
-" ƒXƒjƒyƒbƒgƒtƒ@ƒCƒ‹‚ğ•ÒW‚·‚é
+" ã‚¹ãƒ‹ãƒšãƒƒãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç·¨é›†ã™ã‚‹
 " nnoremap <Space>ns :NeoComplCacheEditSnippets
 
