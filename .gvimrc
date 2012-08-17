@@ -1,22 +1,21 @@
 scriptencoding cp932
 
-" ƒc[ƒ‹ƒo[‚ğ”ñ•\¦
+" ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ã‚’éè¡¨ç¤º
 set guioptions-=T
 
-" ƒJƒ‰[İ’è
-" http://dengmao.wordpress.com/2007/01/22/vim-color-scheme-wombat/
-colorscheme wombat
+" ã‚«ãƒ©ãƒ¼è¨­å®š
+colorscheme night_watch
 
-" ƒtƒHƒ“ƒgİ’è
-set guifont=Consolas:h10,Lucida_Console:h10:w5
-set guifontwide=VL_Gothic:h9:cSHIFTJIS
-
-" WindowˆÊ’u‚Ì•Û‘¶‚Æ•œ‹A
-if has('unix')
-  let s:infofile = '~/.vim/.vimpos'
-else
-  let s:infofile = '~/_vimpos'
+" ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
+if has('win32') || has('win64')
+  set guifont=Consolas:h10
+  set guifontwide=MeiryoKe_Gothic:h8:cSHIFTJIS
+elseif has('mac')
+  set guifont=Menlo:h13
 endif
+
+" Windowä½ç½®ã®ä¿å­˜ã¨å¾©å¸°
+let s:infofile = $VIM.'/_vimpos'
 
 function! s:SaveWindowParam(filename)
   redir => pos
@@ -46,17 +45,17 @@ if filereadable(expand(s:infofile))
 endif
 unlet s:infofile
 
-" ƒƒjƒ…[ƒAƒCƒeƒ€ì¬
+" ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ä½œæˆ
 silent! aunmenu &File.Save
-silent! aunmenu &File.•Û‘¶(&S)
-silent! aunmenu &File.·•ª•\¦(&D)\.\.\.
+silent! aunmenu &File.ä¿å­˜(&S)
+silent! aunmenu &File.å·®åˆ†è¡¨ç¤º(&D)\.\.\.
 
-let message_revert="Ä“Ç‚µ‚Ü‚·‚©?"
-amenu <silent> 10.330 &File.Ä“Ç(&U)<Tab>:e!  :if confirm(message_revert, "&Yes\n&No")==1<Bar> e! <Bar> endif<CR>
-amenu <silent> 10.331 &File.ƒoƒbƒtƒ@íœ(&K)<Tab>:bd  :confirm bd<CR>
-amenu <silent> 10.340 &File.•Û‘¶(&W)<Tab>:w  :if expand('%') == ''<Bar>browse confirm w<Bar>else<Bar>confirm w<Bar>endif<CR>
-amenu <silent> 10.341 &File.XV•Û‘¶(&S)<Tab>:update  :if expand('%') == ''<Bar>browse confirm w<Bar>else<Bar>confirm update<Bar>endif<CR>
-amenu <silent> 10.400 &File.Œ»ƒoƒbƒtƒ@·•ª•\¦(&D)<Tab>:DiffOrig  :DiffOrig<CR>
-amenu <silent> 10.401 &File.— ƒoƒbƒtƒ@‚Æ·•ª•\¦(&D)<Tab>:Diff\ #  :Diff #<CR>
-amenu <silent> 10.402 &File.·•ª•\¦(&D)<Tab>:Diff  :browse vertical diffsplit<CR>
+let message_revert="å†èª­è¾¼ã—ã¾ã™ã‹?"
+amenu <silent> 10.330 &File.å†èª­è¾¼(&U)<Tab>:e!  :if confirm(message_revert, "&Yes\n&No")==1<Bar> e! <Bar> endif<CR>
+amenu <silent> 10.331 &File.ãƒãƒƒãƒ•ã‚¡å‰Šé™¤(&K)<Tab>:bd  :confirm bd<CR>
+amenu <silent> 10.340 &File.ä¿å­˜(&W)<Tab>:w  :if expand('%') == ''<Bar>browse confirm w<Bar>else<Bar>confirm w<Bar>endif<CR>
+amenu <silent> 10.341 &File.æ›´æ–°æ™‚ä¿å­˜(&S)<Tab>:update  :if expand('%') == ''<Bar>browse confirm w<Bar>else<Bar>confirm update<Bar>endif<CR>
+amenu <silent> 10.400 &File.ç¾ãƒãƒƒãƒ•ã‚¡å·®åˆ†è¡¨ç¤º(&D)<Tab>:DiffOrig  :DiffOrig<CR>
+amenu <silent> 10.401 &File.è£ãƒãƒƒãƒ•ã‚¡ã¨å·®åˆ†è¡¨ç¤º(&D)<Tab>:Diff\ #  :Diff #<CR>
+amenu <silent> 10.402 &File.å·®åˆ†è¡¨ç¤º(&D)<Tab>:Diff  :browse vertical diffsplit<CR>
 
