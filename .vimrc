@@ -6,23 +6,71 @@
 " Initialize "{{{
 "
 
+let $PATH = 'C:\MinGW\bin'.';'.'C:\MinGW\msys\1.0\bin'.';'.$PATH
+
 " Vi互換をオフ
 set nocompatible
+
+" for Win
+let s:is_windows = has('win32') || has('win64')
 
 " キーマップリーダーを「,」にする
 let mapleader = ","
 
-if has('win32') || has('win64')
+" Win用の設定を読み込む
+if s:is_windows && filereadable($VIM.'/vimrc_local.vim')
+  source $VIM/vimrc_local.vim
+endif
 
-  " Winのディレクトリパスの区切りに/を使えるように
-  set shellslash
+"------------------------------------
+" neobundle.vim "{{{
+"
 
-  " Linuxサーバを環境変数に指定
-  let $LINUX = "//Hp-serv-linux/htdocs"
+filetype off
 
-  " viminfoファイルの出力先
-  set viminfo+=nC:/Users/H001022/Dropbox/tools/vim/_viminfo
+if has('vim_starting')
+  set runtimepath+=$VIM/vimfiles/neobundle/neobundle.vim/
+endif
 
+call neobundle#rc($VIM.'/vimfiles/neobundle/')
+
+" from GitHub
+NeoBundle 'anyakichi/vim-surround'
+NeoBundle 'Shougo/git-vim.git'
+NeoBundle 'Shougo/neocomplcache.git',
+NeoBundle 'Shougo/neobundle.vim.git'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/vimfiler.git',
+      \ { 'depends' : 'Shougo/unite.vim.git' }
+NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'kana/vim-operator-user'
+NeoBundleLazy 'hail2u/vim-css3-syntax.git'
+NeoBundleLazy 'tyru/open-browser.vim.git'
+NeoBundle 'tyru/restart.vim.git'
+NeoBundle 'fholgado/minibufexpl.vim.git'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/nerdcommenter.git'
+NeoBundle 't9md/vim-textmanip'
+NeoBundle 'othree/eregex.vim'
+NeoBundle 'banyan/recognize_charcode.vim.git'
+NeoBundle 'othree/html5.vim.git'
+NeoBundle 'pangloss/vim-javascript.git'
+NeoBundle 'teramako/jscomplte-vim.git'
+NeoBundle 'vim-scripts/mru.vim.git'
+NeoBundle 'vim-scripts/yanktmp.vim.git'
+NeoBundle 'vim-scripts/YankRing.vim.git'
+NeoBundle 'vim-scripts/JavaScript-syntax.git'
+NeoBundle 'vim-scripts/jQuery.git'
+
+filetype plugin indent on
+
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+        \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
 endif
 
 "---------------------------------------------------------------------------
@@ -541,19 +589,6 @@ vmap ,, <Plug>NERDCommenterToggle
 let NERDShutUp = 1
 
 "------------------------------------
-" VTreeExplorer "{{{
-"
-
-" ノーマルモードで起動
-nnoremap <silent> <Space>vt :VSTreeExplore<CR>
-
-" 縦に表示する
-let g:treeExplVertical = 1
-
-" 分割したウィンドウのサイズ
-let g:treeExplWinSize = 30
-
-"------------------------------------
 " open-blowser.vim "{{{
 "
 
@@ -577,13 +612,6 @@ vmap <C-l> <Plug>(Textmanip.move_selection_right)
 " 行の複製(<M>はAlt)
 vmap <M-d> <Plug>(Textmanip.duplicate_selection_v)
 nmap <M-d> <Plug>(Textmanip.duplicate_selection_n)
-
-"------------------------------------
-" operator-replace.vim "{{{
-"
-
-" ヤンクした文字列を「R」で置換
-nmap R <Plug>(operator-replace)
 
 "------------------------------------
 " surround.vim "{{{
@@ -641,7 +669,7 @@ let g:unite_data_directory = $VIM.'/.unite'
 nnoremap <silent> vs :VimShell<CR>
 
 " シェルコマンドのパスを通す
-let $PATH = $VIM.'\bin'.';'.$PATH
+" let $PATH = $VIM.'\bin'.';'.$PATH
 
 " 設定
 let g:vimshell_interactive_update_time = 10
