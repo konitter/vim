@@ -6,7 +6,7 @@
 " Initialize "{{{
 "
 
-let $PATH = 'C:\MinGW\bin'.';'.'C:\MinGW\msys\1.0\bin'.';'.$PATH
+let $PATH = $PATH.';C:\MinGW\bin;C:\MinGW\msys\1.0\bin'
 
 " Vi互換をオフ
 set nocompatible
@@ -57,7 +57,7 @@ NeoBundle 'othree/eregex.vim'
 NeoBundle 'banyan/recognize_charcode.vim.git'
 NeoBundle 'othree/html5.vim.git'
 NeoBundle 'pangloss/vim-javascript.git'
-NeoBundle 'teramako/jscomplte-vim.git'
+NeoBundle 'teramako/jscomplete-vim.git'
 NeoBundle 'vim-scripts/mru.vim.git'
 NeoBundle 'vim-scripts/yanktmp.vim.git'
 NeoBundle 'vim-scripts/YankRing.vim.git'
@@ -672,11 +672,44 @@ nnoremap <silent> vs :VimShell<CR>
 " let $PATH = $VIM.'\bin'.';'.$PATH
 
 " 設定
-let g:vimshell_interactive_update_time = 10
-let g:vimshell_prompt = '$ '
-let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-let g:vimshell_enable_smart_case = 1
+let g:vimshell_prompt = '% '
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_temporary_directory = $VIM.'/.vimshell'
+let g:vimshell_enable_smart_case = 1
+
+if s:is_windows
+  let g:vimshell_prompt = $USERNAME."% "
+else
+  let g:vimshell_prompt = $USER."% "
+  call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
+  call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
+  let g:vimshell_execute_file_list['zip'] = 'zipinfo'
+  call vimshell#set_execute_file('tgz,gz', 'gzcat')
+  call vimshell#set_execute_file('tbz,bz2', 'bzcat')
+endif
+
+" Initialize execute file list.
+let g:vimshell_execute_file_list = {}
+call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
+let g:vimshell_execute_file_list['rb'] = 'ruby'
+let g:vimshell_execute_file_list['pl'] = 'perl'
+let g:vimshell_execute_file_list['py'] = 'python'
+call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
+
+autocmd FileType vimshell
+\ call vimshell#altercmd#define('g', 'git')
+\| call vimshell#altercmd#define('i', 'iexe')
+\| call vimshell#altercmd#define('l', 'll')
+\| call vimshell#altercmd#define('ll', 'ls -l')
+\| call vimshell#hook#add('chpwd', 'my_chpwd', 'g:my_chpwd')
+
+function! g:my_chpwd(args, context)
+  call vimshell#execute('ls')
+endfunction
+
+autocmd FileType int-* call s:interactive_settings()
+function! s:interactive_settings()
+endfunction
 
 "------------------------------------
 " neocomplcache "{{{
