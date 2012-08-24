@@ -6,8 +6,6 @@
 " Initialize "{{{
 "
 
-let $PATH = $PATH.';C:\MinGW\bin;C:\MinGW\msys\1.0\bin'
-
 " Vi互換をオフ
 set nocompatible
 
@@ -21,6 +19,9 @@ let mapleader = ","
 if s:is_windows && filereadable($VIM.'/vimrc_local.vim')
   source $VIM/vimrc_local.vim
 endif
+
+" 各種コマンドのパスを通す
+let $PATH = $PATH.';C:\MinGW\bin;C:\MinGW\msys\1.0\bin'
 
 "------------------------------------
 " neobundle.vim "{{{
@@ -59,10 +60,10 @@ NeoBundle 'othree/html5.vim.git'
 NeoBundle 'pangloss/vim-javascript.git'
 NeoBundle 'teramako/jscomplete-vim.git'
 NeoBundle 'vim-scripts/mru.vim.git'
-NeoBundle 'vim-scripts/yanktmp.vim.git'
 NeoBundle 'vim-scripts/YankRing.vim.git'
 NeoBundle 'vim-scripts/JavaScript-syntax.git'
 NeoBundle 'vim-scripts/jQuery.git'
+NeoBundle 'vim-scripts/IndentAnything.git'
 
 filetype plugin indent on
 
@@ -640,23 +641,32 @@ endfunction
 " unite.vim "{{{
 "
 
+nnoremap    [unite]   <Nop>
+nmap    f [unite]
+
 " 入力モードで開始する
 let g:unite_enable_start_insert = 1
 
-" バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" 分割しないでuniteのbufferを表示する
+nnoremap [unite]u  :<C-u>Unite -no-split<Space>
+
+" 全部乗せ
+nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
 
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files file<CR>
 
-" レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" バッファ一覧
+nnoremap <silent> [unite]b  :<C-u>Unite -no-split buffer<CR>
+
+" 常用セット
+nnoremap <silent> [unite]u  :<C-u>Unite -no-split buffer file_mru<CR>
 
 " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]m  :<C-u>Unite -no-split file_mru<CR>
 
-" ブックマーク一覧
-nnoremap <silent> ,uc :<C-u>Unite bookmark<CR>
+" 現在のバッファのカレントディレクトリからファイル一覧
+nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -no-split file<CR>
 
 " 設定ファイルを書き出すディレクトリ
 let g:unite_data_directory = $VIM.'/.unite'
@@ -667,9 +677,6 @@ let g:unite_data_directory = $VIM.'/.unite'
 
 " ノーマルモードで起動
 nnoremap <silent> vs :VimShell<CR>
-
-" シェルコマンドのパスを通す
-" let $PATH = $VIM.'\bin'.';'.$PATH
 
 " 設定
 let g:vimshell_prompt = '% '
