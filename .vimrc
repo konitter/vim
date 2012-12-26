@@ -12,6 +12,13 @@ set nocompatible
 " for Win
 let s:is_windows = has('win32') || has('win64')
 
+" vimfiles
+if s:is_windows
+  let $DOTVIM = $VIM.'/vimfiles'
+else
+  let $DOTVIM = '~/.vim'
+endif
+
 " キーマップリーダーを「,」にする
 let mapleader = ","
 
@@ -30,10 +37,10 @@ let $PATH = $PATH.';C:\MinGW\bin;C:\MinGW\msys\1.0\bin'
 filetype off
 
 if has('vim_starting')
-  set runtimepath+=$VIM/vimfiles/neobundle/neobundle.vim/
+  set runtimepath+=$DOTVIM/neobundle/neobundle.vim/
 endif
 
-call neobundle#rc($VIM.'/vimfiles/neobundle/')
+call neobundle#rc($DOTVIM.'/neobundle/')
 
 " from GitHub
 NeoBundle 'anyakichi/vim-surround'
@@ -43,27 +50,34 @@ NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
 NeoBundle 'Shougo/vimfiler.git',
       \ { 'depends' : 'Shougo/unite.vim.git' }
-NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'Shougo/vimproc.git', {
+      \ 'build' : {
+      \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
+      \     'cygwin'  : 'make -f make_cygwin.mak',
+      \     'mac'     : 'make -f make_mac.mak',
+      \     'unix'    : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'kana/vim-operator-user'
+" NeoBundle 'kana/vim-operator-user'
 NeoBundleLazy 'hail2u/vim-css3-syntax.git'
 NeoBundleLazy 'tyru/open-browser.vim.git'
-NeoBundle 'tyru/restart.vim.git'
-NeoBundle 'fholgado/minibufexpl.vim.git'
+" NeoBundle 'tyru/restart.vim.git'
+" NeoBundle 'fholgado/minibufexpl.vim.git'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/nerdcommenter.git'
-NeoBundle 't9md/vim-textmanip'
+" NeoBundle 't9md/vim-textmanip'
 NeoBundle 'othree/eregex.vim'
 NeoBundle 'banyan/recognize_charcode.vim.git'
 NeoBundle 'othree/html5.vim.git'
 NeoBundle 'pangloss/vim-javascript.git'
 NeoBundle 'teramako/jscomplete-vim.git'
-NeoBundle 'vim-scripts/mru.vim.git'
+" NeoBundle 'vim-scripts/mru.vim.git'
 NeoBundle 'vim-scripts/YankRing.vim.git'
 NeoBundle 'vim-scripts/JavaScript-syntax.git'
 NeoBundle 'vim-scripts/jQuery.git'
-NeoBundle 'vim-scripts/IndentAnything.git'
+" NeoBundle 'vim-scripts/IndentAnything.git'
 
 filetype plugin indent on
 
@@ -170,7 +184,7 @@ match ZenkakuSpace /　/
 "
 
 " タブ幅設定
-" set tabstop=8 shiftwidth=8 softtabstop=0
+set tabstop=4 shiftwidth=4 softtabstop=0
 " タブを空白に変換しない
 set noexpandtab
 
@@ -337,18 +351,20 @@ nmap 0 $
 inoremap <Home>  <C-o>^
 
 " 挿入モードでのカーソル移動
-imap <c-s-k> <Up>
-imap <c-s-j> <Down>
-imap <c-h> <Left>
-imap <c-l> <Right>
+imap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-h> <Left>
+imap <C-S-l> <Right>
 
 " ノーマルモードでのバッファ移動
-nmap <Space> ;bn<CR>
-nmap <BS>    ;bp<CR>
+" nmap <Space> ;bn<CR>
+" nmap <BS>    ;bp<CR>
+nmap <C-Tab>   ;bn<CR>
+nmap <C-S-Tab> ;bp<CR>
 
 " 挿入モードでのバッファ移動
 imap <C-Tab>   <ESC>;bn<CR>a
-imap <S-Tab>   <ESC>;bp<CR>a
+imap <C-S-Tab> <ESC>;bp<CR>a
 
 " F4でバッファを削除する
 map <F4> <ESC>;bw<CR>
@@ -389,6 +405,10 @@ onoremap ( t(
 onoremap ) t)
 onoremap ] t]
 onoremap [ t[
+
+" ヤンクした内容を連続してペースト
+vnoremap <silent> p "0p<CR>
+" inoremap <silent> p <ESC>"0pa
 
 " 挿入モードでクリップボードの内容をペースト
 imap <C-v>  <ESC>"*pa
@@ -641,32 +661,59 @@ endfunction
 " unite.vim "{{{
 "
 
-nnoremap    [unite]   <Nop>
-nmap    f [unite]
+nnoremap [unite] <Nop>
+nmap f [unite]
 
 " 入力モードで開始する
 let g:unite_enable_start_insert = 1
 
-" 分割しないでuniteのbufferを表示する
-nnoremap [unite]u  :<C-u>Unite -no-split<Space>
+" file_mruの表示フォーマットを指定
+" 空にすると表示スピードが高速化
+let g:unite_source_file_mru_filename_format = ''
 
-" 全部乗せ
-nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
-
-" ファイル一覧
-nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files file<CR>
+" 現在開いているファイルのディレクトリ下のファイル一覧
+" 開いていない場合はカレントディレクトリ
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 
 " バッファ一覧
-nnoremap <silent> [unite]b  :<C-u>Unite -no-split buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 
-" 常用セット
-nnoremap <silent> [unite]u  :<C-u>Unite -no-split buffer file_mru<CR>
+" レジスタ一覧
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m  :<C-u>Unite -no-split file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 
-" 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir -no-split file<CR>
+" ブックマーク一覧
+nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+
+" ブックマークに追加
+nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+
+" uniteを開いている間のキーマッピング
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  " ESCでuniteを終了
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+
+  " 入力モードのときjjでノーマルモードに移動
+  imap <buffer> jj <Plug>(unite_insert_leave)
+
+  " 入力モードのときctrl+wでバックスラッシュも削除
+  imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+
+  " ctrl+jで縦に分割して開く
+  nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+  inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+
+  " ctrl+jで横に分割して開く
+  nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+  inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+
+  " ctrl+oでその場所に開く
+  nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+  inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+endfunction"}}}
 
 " 設定ファイルを書き出すディレクトリ
 let g:unite_data_directory = $VIM.'/.unite'
@@ -725,51 +772,92 @@ endfunction
 " 補完ウィンドウの設定
 set completeopt=menuone
 
-" 起動時に有効化
+" AutoComplPopを無効
+let g:acp_enableAtStartup = 0
+
+" 起動時に有効
 let g:neocomplcache_enable_at_startup = 1
 
-" 大文字が入力されるまで大文字小文字の区別を無視する
+" ポップアップメニューで表示される候補の数(初期値:100)
+let g:neocomplcache_max_list = 20
+
+" 自動補完を行う入力数を設定(初期値:2)
+let g:neocomplcache_auto_completion_start_length = 2
+
+" 手動補完時に補完を行う入力数を制御
+let g:neocomplcache_manual_completion_start_length = 3
+
+" バッファや辞書ファイル内の補完対象となるキーワードの最小長さ(初期値:4)
+let g:neocomplcache_min_keyword_length = 4
+
+" シンタックスファイル内の補完対象となるキーワードの最小長さ(初期値:4)
+let g:neocomplcache_min_syntax_length = 4
+
+" 補完のスキップ時間を設定
+" let g:neocomplcache_skip_auto_completion_time = '0.5'
+
+" 補完候補検索時に大文字・小文字を無視する
+let g:neocomplcache_enable_ignore_case = 1
+
+" 入力に大文字が入力されている場合、大文字小文字の区別をする
 let g:neocomplcache_enable_smart_case = 1
 
-" シンタックスをキャッシュするときの最小文字長
-let g:neocomplcache_min_syntax_length = 3
+" 大文字小文字を区切りとしたあいまい検索を行うかどうか
+" DTと入力するとD*T*と解釈され、DateTime等にマッチ
+let g:neocomplcache_enable_camel_case_completion = 0
 
-" バッファや辞書ファイル中の補完対象となるキーワードの最小長
-let g:neocomplcache_min_keyword_length = 3
+" アンダーバーを区切りとしたあいまい検索を行うかどうか
+" m_sと入力するとm*_sと解釈され、mb_substr等にマッチ
+let g:neocomplcache_enable_underbar_completion = 0
 
-" クイックマッチ時に自動で候補を選択
-let g:neocomplcache_enable_auto_select = 1
-
-" ポップアップメニューで表示される候補の数
-let g:neocomplcache_max_list = 100
-
-" 一時ファイルを書き出すディレクトリ
+" キャッシュディレクトリの場所
 let g:neocomplcache_temporary_dir = $VIM.'/.neocon'
-
-" 補完するためのキーワードパターンを記録
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " シンタックス補完を無効に
 let g:neocomplcache_plugin_disable = {
   \ 'syntax_complete' : 1,
   \ }
 
+" 補完するためのキーワードパターンを指定
+if !exists('g:neocomplcache_keyword_patterns')
+  let g:neocomplcache_keyword_patterns = {}
+endif
+
+" 日本語を補完候補として取得しないようにする
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" ディクショナリ補完
+" ファイルタイプごとの辞書ファイルの場所
+let g:neocomplcache_dictionary_filetype_lists = {
+  \ 'default' : '',
+  \ 'vimshell' : $VIM . '/.vimshell/command-history',
+  \ }
+
 " 標準で用意されているスニペットを無効にする
 let g:neocomplcache_snippets_disable_runtime_snippets = 1
 
-" スニペット補完ファイルのパス
-" let g:neocomplcache_snippets_dir = $VIM.'/snippets'
+" スニペットファイルの置き場所
+" let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 
-" 前回補完された内容を元に戻す
-inoremap <expr><C-g>   neocomplcache#undo_completion()
+" zen-coding連携
+let g:use_zen_complete_tag = 1
 
-" ポップアップを確実に閉じる
-inoremap <expr><BS>    neocomplcache#smart_close_popup()."\<C-h>"
+" オムニ補完
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-" 補完候補を選択する（選択する度に元のキーワードを更新）
+" keymap "{{{
+
+" 表示行単位で移動(snippet展開対策済み)
+nnoremap j gj
+onoremap j gj
+xnoremap j gj
+nnoremap k gk
+onoremap k gk
+xnoremap k gk
+
+" Tabで補完候補を選択する（選択する度に元のキーワードを更新）
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ neocomplcache#start_manual_complete()
@@ -778,12 +866,43 @@ function! s:check_back_space()"{{{
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
-" 補完候補を逆順で選択する
+" S-Tabで補完候補を逆順で選択する
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 
-" スニペットを展開
-" imap <c-e>     <Plug>(neocomplcache_snippets_expand)
-" smap <c-e>     <Plug>(neocomplcache_snippets_expand)
+" BSで補完ウィンドウを確実に閉じる
+" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
+
+" 上下キーで補完ウィンドウを閉じる
+inoremap <expr><Up> pumvisible() ? neocomplcache#close_popup()."\<Up>" : "\<Up>"
+inoremap <expr><Down> pumvisible() ? neocomplcache#close_popup()."\<Down>" : "\<Down>"
+
+" C-yで補完候補の確定
+" inoremap <expr><C-y> neocomplcache#close_popup()
+
+" C-eで補完のキャンセルし、ウィンドウを閉じる
+" ポップアップが開いていないときはEndキー
+" inoremap <expr><C-e> pumvisible() ? neocomplcache#cancel_popup() : "\<End>"
+inoremap <expr><C-y> pumvisible() ? neocomplcache#cancel_popup() : "\<End>"
+
+" C-gで補完を元に戻す
+inoremap <expr><C-g> neocomplcache#undo_completion()
+
+" vim標準のキーワード補完を置き換える
+inoremap <expr><C-n> neocomplcache#manual_keyword_complete()
+
+" C-pで上キー
+inoremap <C-p> <Up>
+
+" 補完候補の共通文字列を補完する(シェル補完のような動作)
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+" オムニ補完の手動呼び出し
+inoremap <expr><C-Space> neocomplcache#manual_omni_complete()
+
+" スニペットを展開する
+" スニペットが関係しないところでは行末まで削除
+" imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+" smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 
 " スニペットファイルを編集する
 " nnoremap <Space>ns :NeoComplCacheEditSnippets
